@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Shopify Image Repository</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{{ url_for('static',filename='images/icons/favicon.ico') }}"/>
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}">
+<!--===============================================================================================-->
+</head>
+<body>
+    <div class="navbar">
+        <a href="/restock">Restock</a>
+        <a href="/upload">Upload</a>
+        <a>Profit: ${{profit}}</a>
+    </div>
+	<div class="limiter" style="margin-top: 40px;">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100" style=" overflow-y: auto; height: 560px;">
+					<table>
+						<thead style="position: sticky; top: 0;">
+							<tr class="table100-head">
+                                <th class="column1">Name</th>
+                                <th class="column2">Price</th>
+                                <th class="column3">Stock</th>
+                                <th class="column4">Image</th>
+                                <th class="column5"></th>
+							</tr>
+                        </thead>
+                        {% for product in products %}
+                            <tr>
+                            <td class="column1">{{product["name"]}}</td>
+                            <td class="column2">{{product["price"]}}</td>
+                            <td class="column3">{{product["stock"]}}</td>
+                            <td class="column4"><img src='{{product["src"]}}' width="140" height="160" /></td>
+                            <td class="column5"><a href='/cart/{{product["id"]}}'>BUY</button></td>
+                            </tr>
+                        {% endfor %}
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

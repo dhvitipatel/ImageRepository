@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Shopify Image Repository</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{{ url_for('static',filename='images/icons/favicon.ico') }}"/>
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}">
+<!--===============================================================================================-->
+    <style>
+        .frame {
+            width: 100%;
+            min-height: 100vh;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 33px 30px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background: linear-gradient(to top right, darkmagenta 0%, hotpink 100%);
+            color: #333;
+            font-family: "Open Sans", Helvetica, sans-serif;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 450px;
+            border-radius: 3px;
+            box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.2);
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+        }
+
+        .title {
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid #999;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 16px;
+            font-weight: 300;
+            color: #666;
+        }
+
+        .dropzone {
+            width: 100%;
+            text-align: center;
+            align-items: center;
+        }
+
+        .btn {
+            display: block;
+            width: 140px;
+            height: 40px;
+            background: darkmagenta;
+            color: #fff;
+            border-radius: 3px;
+            border: 0;
+            box-shadow: 0 3px 0 0 hotpink;
+            transition: all 0.3s ease-in-out;
+            font-size: 14px;
+            align-self: center;
+        }
+
+        .btn:hover {
+            background: rebeccapurple;
+            box-shadow: 0 3px 0 0 deeppink;
+        }
+
+        .fileb{
+            margin-bottom: 10px;
+        }
+        input{
+            float: center;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        input[type=file], input[type=submit] {
+            display: block;
+            outline: none;
+            margin-left: 35%;
+        }
+
+        .oneline label, .oneline input {
+            float: none; /* if you had floats before? otherwise inline-block will behave differently */
+            display: inline-block;
+            vertical-align: middle; 
+            margin-top: 15px;   
+        }
+
+        .oneline input{
+            border-radius: 50px;
+            background-color: #e6e6e6;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/restock">Restock</a>
+        <a href="/upload">Upload</a>
+        <a>Profit: ${{profit}}</a>
+    </div>
+    <div class="frame">
+        <div class="center">
+            <div class="title">
+                <h1>Choose file to upload</h1>
+            </div>
+            <div class="dropzone">
+                <form action = "http://127.0.0.1:5000/uploader" method = "POST" 
+                    enctype = "multipart/form-data">
+                    <div class="oneline"><label for="fname">File name:</label>
+                        <input type="text" id="filename" name="fname" required/></div>
+                    <div class="oneline"><label for="fname">Art Peice Title:</label>
+                    <input type="text" id="artname" name="artname" required/></div>
+                    <div class="oneline"><label for="fname">Price:</label>
+                    <input type="number"  step="0.01" id="price" name="price" placeholder="00.00" required/></div>
+                    <div class="oneline"><label for="fname">Stock:</label>
+                    <input type="number" id="stock" name="stock" placeholder="XX" required/></div>
+                    <input type = "file"  class="fileb" name = "file" accept="image/jpeg" required/>
+                    <input type = "submit" class="btn" name="uploadbutton"/>
+                </form> 
+            </div> 
+        </div>
+    </div>
+
+
+</body>
+</html>
