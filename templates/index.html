@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Shopify Image Repository</title>
+	<title>Shopify's Art Store</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -39,7 +39,7 @@
                             <td class="column2">{{product["price"]}}</td>
                             <td class="column3">{{product["stock"]}}</td>
                             <td class="column4"><img src='{{product["src"]}}' width="140" height="160" /></td>
-                            <td class="column5"><a href='/cart/{{product["id"]}}'>BUY</button></td>
+                            <td class="column5"><a class="button" href='/cart/{{product["id"]}}'>BUY</button></td>
                             </tr>
                         {% endfor %}
 					</table>

@@ -9,6 +9,9 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = './static/images'
 app.secret_key = secret
 
+def getApp():
+    return app
+
 @app.route("/", methods = ['GET', 'POST'])
 def home():
     products = InventoryService().get_products()
