@@ -1,5 +1,6 @@
 # Art Repository
-This is a simple image repository created by Dhviti Patel for the Shopify Intern Coding Challenge. This is a python app, implemented using sqlite3 anf flask for a web interface and ability to track inventory, transcactions and information about the product. 
+This is a simple image repository created by Dhviti Patel. 
+This is a python app, implemented using sqlite3 and flask for a web interface and ability to track inventory, transcactions and information about the product. 
 
 ## Features
 - Buy/Sell Art Peices along with information about how much money one spend purchasing and updating inventory. 
